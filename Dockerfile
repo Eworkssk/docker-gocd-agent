@@ -20,7 +20,15 @@ ADD node.sh /usr/bin/xnode
 RUN chmod 777 /usr/bin/xnode
 
 # Install PHP
-RUN apt update -y && apt install -y php$PHP_VERSION-cli
+RUN apt update -y && apt install -y \
+    php$PHP_VERSION-cli \
+    php$PHP_VERSION-bcmath \
+    php$PHP_VERSION-curl \
+    php$PHP_VERSION-mbstring \
+    php$PHP_VERSION-readline \
+    php$PHP_VERSION-xml \
+    php$PHP_VERSION-yaml \
+    php$PHP_VERSION-zip
 
 # Install Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
